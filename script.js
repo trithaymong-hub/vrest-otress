@@ -4,16 +4,17 @@
 
 
 const files = [
-{ name: 'icj.pdf', path: 'documents/icj.pdf' },
-{ name: 'Proforma Invoice Weekday Rate.pdf', path: 'documents/Proforma Invoice Weekday Rate.pdf' },
-{ name: 'Room Reservation Check In.pdf', path: 'documents/Room Reservation Check In.pdf' },
-{ name: 'Summary Proformat Invoice.pdf', path: 'documents/Summary Proformat Invoice.pdf' }
+{ name: 'OVER TIME REQUEST.docx (1).pdf', path: 'OVER TIME REQUEST.docx (1).pdf' },
+{ name: 'TAKE-AWAY-AND-FRUIT-CAKE-REQUEST-FORM.pdf', path: 'TAKE-AWAY-AND-FRUIT-CAKE-REQUEST-FORM.pdf' },
+{ name: 'Vrest Hotel Otress register form.pdf', path: 'Vrest Hotel Otress register form.pdf' },
+{ name: 'Vrest Purchase.pdf', path: 'Vrest Purchase.pdf' }
 ];
 
 
 const filesExl = [
-{ name: 'Sample Excel 1.xlsx', path: 'documents/sample1.xlsx' },
-{ name: 'Sample Excel 2.xlsx', path: 'documents/sample2.xlsx' }
+{ name: 'Copy of Cash Drop file.xlsx', path: 'Copy of Cash Drop file.xlsx' },
+{ name: 'Rooming list.xlsx', path: 'Rooming list.xlsx' },
+{ name: 'Visitor Declaration Form.xlsx', path: 'Visitor Declaration Form.xlsx' }
 ];
 
 
