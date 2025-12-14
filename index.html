@@ -1,109 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Document Storage Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    input[type="file"] {
-      margin-bottom: 15px;
-    }
-    button {
-      background: #3498db;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #2980b9;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ecf0f1;
-      margin-bottom: 10px;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    .delete {
-      background: #e74c3c;
-    }
-    .delete:hover {
-      background: #c0392b;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VRest DOC</title>
+<link rel="icon" type="image/png" href="image/logobar.png">
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>📁 Document Storage Website</h1>
-  </header>
-  <div class="container">
-    <h3>Stored Documents</h3>
-    <p>Files stored here can be downloaded and shared with other users on the same device.</p>
-    <ul id="fileList"></ul>
-  </div>
-
-  <script>
-    // ================================
-    // STATIC DOCUMENT LIST (NO BACKEND)
-    // ================================
-    // Files MUST exist inside the /documents folder
-    // This works only via Live Server or GitHub Pages
-
-    const files = [
-      { name: 'icj.pdf', path: 'documents/icj.pdf' },
-      { name: 'Proforma Invoice Weekday Rate.pdf', path: 'documents/Proforma Invoice Weekday Rate.pdf' },
-      { name: 'Room Reservation Check In.pdf', path: 'documents/Room Reservation Check In.pdf' },
-      { name: 'Summary Proformat Invoice.pdf', path: 'documents/Summary Proformat Invoice.pdf' }
-    ];
-
-    function renderFiles() {
-      const list = document.getElementById('fileList');
-      list.innerHTML = '';
-
-      files.forEach(file => {
-        const li = document.createElement('li');
-        const link = document.createElement('a');
-
-        link.href = file.path;      // correct relative path
-        link.textContent = file.name;
-        link.target = '_blank';     // open PDF in browser
-        link.download = file.name;  // allow download
-
-        li.appendChild(link);
-        list.appendChild(li);
-      });
-    }
+<header>
+<h1>📁 VRest DOC</h1>
+</header>
 
 
-    // Render on page load
-    document.addEventListener('DOMContentLoaded', renderFiles);
-  </script>
+<main class="wrapper">
+<div class="container">
+<h3>Stored Documents for PDF</h3>
+<p>Files stored here can be downloaded and shared.</p>
+<ul id="fileList"></ul>
+</div>
+
+
+<div class="container">
+<h3>Stored Documents for EXL</h3>
+<p>Files stored here can be downloaded and shared.</p>
+<ul id="fileExl"></ul>
+</div>
+</main>
+
+
+<script src="script.js"></script>
 </body>
 </html>

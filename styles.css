@@ -1,0 +1,75 @@
+* {
+box-sizing: border-box;
+}
+
+
+body {
+font-family: Arial, sans-serif;
+background: #f4f6f8;
+margin: 0;
+}
+
+
+header {
+background: #049696;
+color: white;
+padding: 15px;
+text-align: center;
+}
+
+
+.wrapper {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1rem;
+max-width: 900px;
+margin: 30px auto;
+padding: 0 15px;
+}
+
+
+.container {
+background: white;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+ul {
+list-style: none;
+padding: 0;
+}
+
+
+li {
+background: #ecf0f1;
+margin-bottom: 10px;
+padding: 10px;
+border-radius: 5px;
+}
+
+
+li a {
+text-decoration: none;
+color: #2c3e50;
+font-weight: bold;
+}
+
+
+li a:hover {
+text-decoration: underline;
+}
+
+
+/* 📱 Phone Screen Support */
+@media (max-width: 768px) {
+.wrapper {
+grid-template-columns: 1fr;
+}
+
+
+header h1 {
+font-size: 1.4rem;
+}
+}
