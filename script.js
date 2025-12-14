@@ -4,18 +4,18 @@
 
 
 const files = [
-{ name: 'OVER TIME REQUEST.docx (1).pdf', path: 'OVER TIME REQUEST.docx (1).pdf' },
-{ name: 'TAKE-AWAY-AND-FRUIT-CAKE-REQUEST-FORM.pdf', path: 'TAKE-AWAY-AND-FRUIT-CAKE-REQUEST-FORM.pdf' },
-{ name: 'Vrest Hotel Otress register form.pdf', path: 'Vrest Hotel Otress register form.pdf' },
-{ name: 'Vrest Purchase.pdf', path: 'Vrest Purchase.pdf' }
+  { name: 'Vrest Purchase.pdf', path: 'documents/pdf/Vrest Purchase.pdf' },
+  { name: 'Vrest Hotel Otress register form.pdf', path: 'documents/pdf/Vrest Hotel Otress register form.pdf' },
+  { name: 'OVER TIME REQUEST.pdf', path: 'documents/pdf/OVER TIME REQUEST.docx (1).pdf' },
+  { name: 'TAKE AWAY & FRUIT CAKE REQUEST.pdf', path: 'documents/pdf/TAKE-AWAY-AND-FRUIT-CAKE-REQUEST-FORM.pdf' }
 ];
-
 
 const filesExl = [
-{ name: 'Copy of Cash Drop file.xlsx', path: 'Copy of Cash Drop file.xlsx' },
-{ name: 'Rooming list.xlsx', path: 'Rooming list.xlsx' },
-{ name: 'Visitor Declaration Form.xlsx', path: 'Visitor Declaration Form.xlsx' }
+  { name: 'Rooming list.xlsx', path: 'documents/excel/Rooming list.xlsx' },
+  { name: 'Visitor Declaration Form.xlsx', path: 'documents/excel/Visitor Declaration Form.xlsx' },
+  { name: 'Copy of Cash Drop file.xlsx', path: 'documents/excel/Copy of Cash Drop file.xlsx' }
 ];
+
 
 
 function render(listId, data) {
