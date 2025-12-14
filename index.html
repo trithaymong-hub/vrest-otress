@@ -75,65 +75,44 @@
   </div>
 
   <script>
-    // Pre-added documents stored directly in the code (Base64 or URL)
-    let files = [
-      
+    // ================================
+    // STATIC DOCUMENT LIST (NO BACKEND)
+    // ================================
+    // Files MUST exist inside the /documents folder
+    // This works only via Live Server or GitHub Pages
+
+    const files = [
+      { name: 'icj.pdf', path: 'documents/icj.pdf' },
+      { name: 'Proforma Invoice Weekday Rate.pdf', path: 'documents/Proforma Invoice Weekday Rate.pdf' },
+      { name: 'Room Reservation Check In.pdf', path: 'documents/Room Reservation Check In.pdf' },
+      { name: 'Summary Proformat Invoice.pdf', path: 'documents/Summary Proformat Invoice.pdf' }
     ];
-
-    // Load additional documents from localStorage if any
-    const savedFiles = JSON.parse(localStorage.getItem('documents')) || [];
-    files = files.concat(savedFiles);
-
-    function uploadFile() {
-      const input = document.getElementById('fileInput');
-      if (!input.files.length) {
-        alert('Please select a file');
-        return;
-      }
-
-      const file = input.files[0];
-      const reader = new FileReader();
-
-      reader.onload = function () {
-        files.push({ name: file.name, data: reader.result });
-        localStorage.setItem('documents', JSON.stringify(files));
-        input.value = '';
-        renderFiles();
-      };
-
-      reader.readAsDataURL(file);
-    }
 
     function renderFiles() {
       const list = document.getElementById('fileList');
       list.innerHTML = '';
 
-      files.forEach((file, index) => {
+      files.forEach(file => {
         const li = document.createElement('li');
-
         const link = document.createElement('a');
-        link.href = file.data;
-        link.download = file.name;
-        link.textContent = file.name;
 
-        const delBtn = document.createElement('button');
-        delBtn.textContent = 'Delete';
-        delBtn.className = 'delete';
-        delBtn.onclick = () => deleteFile(index);
+        link.href = file.path;      // correct relative path
+        link.textContent = file.name;
+        link.target = '_blank';     // open PDF in browser
+        link.download = file.name;  // allow download
 
         li.appendChild(link);
-        li.appendChild(delBtn);
         list.appendChild(li);
       });
     }
 
-    function deleteFile(index) {
-      files.splice(index, 1);
-      localStorage.setItem('documents', JSON.stringify(files));
-      renderFiles();
+    // Disable upload (static site)
+    function uploadFile() {
+      alert('Upload is disabled. Files come from the documents folder.');
     }
 
-    renderFiles();
+    // Render on page load
+    document.addEventListener('DOMContentLoaded', renderFiles);
   </script>
 </body>
 </html>
