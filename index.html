@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document Storage Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    input[type="file"] {
+      margin-bottom: 15px;
+    }
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2980b9;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ecf0f1;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .delete {
+      background: #e74c3c;
+    }
+    .delete:hover {
+      background: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📁 Document Storage Website</h1>
+    <p>Upload and manage your documents</p>
+  </header>
+
+  <div class="container">
+    <input type="file" id="fileInput" />
+    <button onclick="uploadFile()">Upload Document</button>
+
+    <h3>Stored Documents</h3>
+    <p>Files stored here can be downloaded and shared with other users on the same device.</p>
+    <ul id="fileList"></ul>
+  </div>
+
+  <script>
+    // Pre-added documents stored directly in the code (Base64 or URL)
+    let files = [
+      
+    ];
+
+    // Load additional documents from localStorage if any
+    const savedFiles = JSON.parse(localStorage.getItem('documents')) || [];
+    files = files.concat(savedFiles);
+
+    function uploadFile() {
+      const input = document.getElementById('fileInput');
+      if (!input.files.length) {
+        alert('Please select a file');
+        return;
+      }
+
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        files.push({ name: file.name, data: reader.result });
+        localStorage.setItem('documents', JSON.stringify(files));
+        input.value = '';
+        renderFiles();
+      };
+
+      reader.readAsDataURL(file);
+    }
+
+    function renderFiles() {
+      const list = document.getElementById('fileList');
+      list.innerHTML = '';
+
+      files.forEach((file, index) => {
+        const li = document.createElement('li');
+
+        const link = document.createElement('a');
+        link.href = file.data;
+        link.download = file.name;
+        link.textContent = file.name;
+
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Delete';
+        delBtn.className = 'delete';
+        delBtn.onclick = () => deleteFile(index);
+
+        li.appendChild(link);
+        li.appendChild(delBtn);
+        list.appendChild(li);
+      });
+    }
+
+    function deleteFile(index) {
+      files.splice(index, 1);
+      localStorage.setItem('documents', JSON.stringify(files));
+      renderFiles();
+    }
+
+    renderFiles();
+  </script>
+</body>
+</html>
