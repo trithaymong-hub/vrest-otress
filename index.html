@@ -62,12 +62,7 @@
 <body>
   <header>
     <h1>📁 Document Storage Website</h1>
-    <p>Upload and manage your documents</p>
   </header>
-
-  <div class="container">
-    <input type="file" id="fileInput" />
-    <button onclick="uploadFile()">Upload Document</button>
 
     <h3>Stored Documents</h3>
     <p>Files stored here can be downloaded and shared with other users on the same device.</p>
@@ -106,10 +101,6 @@
       });
     }
 
-    // Disable upload (static site)
-    function uploadFile() {
-      alert('Upload is disabled. Files come from the documents folder.');
-    }
 
     // Render on page load
     document.addEventListener('DOMContentLoaded', renderFiles);
